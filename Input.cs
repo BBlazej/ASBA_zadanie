@@ -32,7 +32,7 @@ namespace ABSAConversionLib
         }
         void ParseStringInput(string input)
         {
-            string inp = input.ToLower();
+            string inp = input;
             inp = inp.Replace('(', ' ').Replace(')', ' ').Trim();
             List<string> list = new List<string>();
             list = inp.Split(",").ToList();
