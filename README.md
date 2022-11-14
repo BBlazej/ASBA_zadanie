@@ -14,4 +14,9 @@ Console.WriteLine($@"{lib.Convert(input1)}");
 // input as string {"inputValue inputUnits, outputUnits"}
 string Sinput1 = $@"(1 meter, feet)";
 Console.WriteLine($@"{lib.Convert(Sinput1)}");
+
+// Output class have overrided ToString method in format: 
+// "(inputValue inputUnits) -> outputValue outputUnits"
+// Or if input data are not present
+// "(outputValue outputUnits)"
 ```
