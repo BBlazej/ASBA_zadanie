@@ -1,38 +1,5 @@
-﻿
-
-using static ABSAConversionLib.TemperatureConvertor;
-
-namespace ABSAConversionLib
+﻿namespace ABSAConversionLib
 {
-    /*
-     * Create a class library (C#) for conversion of quantities between different units. 
-     * The library should provide conversions between units of length (meters, feet, inches), 
-     * units of data (bits or bytes) 
-     * and temperature (celsius , fahrenheit) out of the box. 
-     * The library must support commonly used SI prefixes.
-     *   
-     * The library must be easily extensible so that conversions of units of other measures (like volume - liter, cubicinch, pint) 
-     * could be added by someone else in the future.
-     * 
-     * API must provide functions that take text input with some kind of simplified syntax (ignore plural / singular difference for example).
-     * 
-     * Example input  (from X units, to target unit)-> output:
-     * ("1 meter", "feet") -> "3.28 feet"
-     * ("3 kiloinches", "meter") -> "76.19 meter"
-     * 
-     * Input / output are not defined strictly. We don't care about 100% correct english grammar 
-     * (like correct plural / singular form – "2 inch" is OK). It is up to candidate to come up with some reasonable syntax rules.
-     * 
-     * Couple of criteria and hints:
-     * 
-     * Solution must be in production quality. 
-     * Fellow programmer doing changes to your code must feel safe not to break it accidentally.
-     * 
-     * Important factor is flexibility and code clarity! 
-     * 
-     * Don't over-engineer but don't under-engineer
-     */
-
     public class ConversionLib
     {
         Input _input = null;
