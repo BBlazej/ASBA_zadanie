@@ -1,6 +1,17 @@
 # ASBA_zadanie
-Units Convertor Usage: 
 
+Possible conversions:
+
+```
+Length: meter/inch/foot (m/ft/in)
+Temperature: Fahrenheit/Celsius (F/C)
+Information: Bit/Byte (bit/B)
+
+Using of plural in units definitions is allowed.
+Definitions of units are not case-sensitive.
+```
+
+Units Convertor Usage: 
 ```csharp
 using ABSAConversionLib;
 
