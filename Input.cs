@@ -12,16 +12,26 @@ namespace ABSAConversionLib
         public string _units = "";
         public string _convertTo = "";
         public bool _valid = false;
-        private int argCount = 0;
+        private int _argCount = 0;
+        private object _inputObject;
 
         public Input() { }
-        public Input(List<string> input)
+        public Input(object inputObject) 
         {
-            ParseListInput(input);
+            _inputObject = inputObject;
+            if (inputObject is List<string>)
+                ParseListInput((List<string>)inputObject);
+            else if (inputObject is string)
+                ParseStringInput((string)inputObject);
+            else
+            {
+                Helper.GetHelp();
+                Console.WriteLine($@"Error: Not supported input type: {inputObject.GetType}.", "");
+                return;
+            }
         }
-        public Input(string input)
+        void ParseStringInput(string input)
         {
-
             string inp = input;
             inp = inp.Replace('(', ' ').Replace(')', ' ').Trim();
             List<string> list = new List<string>();
@@ -31,31 +41,28 @@ namespace ABSAConversionLib
 
         void ParseListInput(List<string> input)
         {
-            // ("1 meter", "feet")-> "3.28 feet"
             if (input == null)
             {
                 Console.WriteLine($@"Error: Provided input is null.");
                 return;
             }
 
-            argCount = input.Count;
+            _argCount = input.Count;
 
-            if (!ValidatedInput())
+            if (!ValidateArguments())
                 return;
 
             _value = input[0].Split(" ")[0].Trim();
             _units = input[0].Split(" ")[1].Trim();
             _convertTo = input[1].Trim();
-
         }
 
-        bool ValidatedInput()
+        bool ValidateArguments()
         {
             try
             {
                 bool inputValidation = false;
-                
-                switch (argCount)
+                switch (_argCount)
                 {
                     case 0:
                         Console.WriteLine($@"Error: Input List is empty.");
@@ -76,6 +83,10 @@ namespace ABSAConversionLib
             {
                 throw new Exception(ex.Message);
             }
+        }
+        public override string ToString()
+        {
+            return $@"({_inputObject})";
         }
     }
 }
