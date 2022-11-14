@@ -32,7 +32,7 @@ namespace ABSAConversionLib
         }
         void ParseStringInput(string input)
         {
-            string inp = input;
+            string inp = input.ToLower();
             inp = inp.Replace('(', ' ').Replace(')', ' ').Trim();
             List<string> list = new List<string>();
             list = inp.Split(",").ToList();
@@ -52,9 +52,9 @@ namespace ABSAConversionLib
             if (!ValidateArguments())
                 return;
 
-            _value = input[0].Split(" ")[0].Trim();
-            _units = input[0].Split(" ")[1].Trim();
-            _convertTo = input[1].Trim();
+            _value = input[0].Split(" ")[0].Trim().ToLower();
+            _units = input[0].Split(" ")[1].Trim().ToLower();
+            _convertTo = input[1].Trim().ToLower();
         }
 
         bool ValidateArguments()
